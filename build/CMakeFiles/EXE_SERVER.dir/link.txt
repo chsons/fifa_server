@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/EXE_SERVER.dir/src/main.cc.o  -o EXE_SERVER ../../jsoncpp/build/lib/libjsoncpp.a libinterfacelib.a ../../redisdb/lib/libredisdb.a ../../vsys/lib/libvsys.a ../../acl/lib_acl_cpp/lib/lib_acl_cpp.a ../../acl/lib_protocol/lib/lib_protocol.a ../../acl/lib_acl/lib/lib_acl.a -lpthread -ldlib -lgflags -lglog -ldl -lach 

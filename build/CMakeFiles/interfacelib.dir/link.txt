@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinterfacelib.a  CMakeFiles/interfacelib.dir/src/http.cc.o
+/usr/bin/ranlib libinterfacelib.a

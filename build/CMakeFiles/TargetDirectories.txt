@@ -1,0 +1,4 @@
+/home/son/myson/fifa/build/CMakeFiles/rebuild_cache.dir
+/home/son/myson/fifa/build/CMakeFiles/edit_cache.dir
+/home/son/myson/fifa/build/CMakeFiles/interfacelib.dir
+/home/son/myson/fifa/build/CMakeFiles/EXE_SERVER.dir
