@@ -33,11 +33,11 @@ void WebInterface::thread(){
   
   int count = 0;
 
-  web_server our_web_server;
-  // make it listen on port 33505
-  our_web_server.set_listening_port(PORT);
+  fifa_server our_fifa_server;
+  // make it listen on port 33150
+  our_fifa_server.set_listening_port(PORT);
   // Tell the server to begin accepting connections.
-  our_web_server.start_async();
+  our_fifa_server.start_async();
   
   while(!is_exited_)
   {
@@ -52,7 +52,7 @@ void WebInterface::thread(){
   std::cout << "web_interace Thread Ended" << std::endl;
 }
 
-const std::string web_server::on_request(
+const std::string fifa_server::on_request(
     const dlib::incoming_things& incoming, dlib::outgoing_things& outgoing )
 {
   std::ostringstream sout;
@@ -74,35 +74,48 @@ const std::string web_server::on_request(
   cout << "body = \""       << incoming.body << "\"" << endl;
   */
 
-
-  sout << process_request(incoming, "/menu_list");
+  sout << url_login(incoming, "/login");
+  sout << url_signup(incoming, "/signup");
 
   return sout.str();
 }
 
-web_server::web_server(){
+fifa_server::fifa_server(){
 
 }
 
-string web_server::process_request(
+string fifa_server::url_login(
       const dlib::incoming_things& incoming, 
       string message) {
-  LOG(INFO) << "web page --> server: requset";
   string path_str = incoming.path;
 
   std::ostringstream sout;
   if(path_str.find(message) != std::string::npos)
   {
-    std::string filename("./menu_inf_data.json");
-
-    sout << ReadFileIntoString(filename);
-
+    sout << "{ \"success\" : \"true\"  }" ;
   }   
 
   return sout.str();
 }
 
-string web_server::ReadFileIntoString(const string& path)
+string fifa_server::url_signup(
+      const dlib::incoming_things& incoming, 
+      string message) {
+  
+  string path_str = incoming.path;
+  LOG(INFO) << path_str.find(message);
+  std::ostringstream sout;
+  if(path_str.find(message) != std::string::npos)
+  {
+    LOG(INFO) << "user: " << incoming.queries["user"];
+    LOG(INFO) << "passwd: " << incoming.queries["passwd"];
+    sout << "{ \"success\" : \"true\"  }" ;
+  }   
+
+  return sout.str();
+}
+
+string fifa_server::ReadFileIntoString(const string& path)
 {
     ifstream input_file(path);
     if(!input_file.is_open()) {
@@ -115,7 +128,7 @@ string web_server::ReadFileIntoString(const string& path)
       std::istreambuf_iterator<char>());
 }
 
-string web_server::localchangetime()
+string fifa_server::localchangetime()
 {
      //현재 시간 출력
     time_t timer;

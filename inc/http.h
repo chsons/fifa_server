@@ -21,7 +21,7 @@
 
 
 
-#define PORT 33515
+#define PORT 33150
 
 
 using namespace std;
@@ -44,15 +44,17 @@ bool is_exited_;
 };
 
 
-class web_server : public dlib::server_http
+class fifa_server : public dlib::server_http
 {
 const std::string on_request(
     const dlib::incoming_things& incoming, 
     dlib::outgoing_things& outgoing);
 public:
-  web_server();
+  fifa_server();
   string ReadFileIntoString(const string& path);
-  string process_request(
+  string url_login(
+      const dlib::incoming_things& incoming, string message);
+  string url_signup(
       const dlib::incoming_things& incoming, string message);
   string process_response_menu(
       const dlib::incoming_things& incoming, string message);

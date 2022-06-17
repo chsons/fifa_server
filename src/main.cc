@@ -3,6 +3,7 @@
 
 int main()
 {
+    WebInterface our_web;
 
     while(1) {
         // std::cout << "It is working in the 'test exe server' :" << cout++ << std::endl;
