@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include "data.h"
 
 
 class Login
@@ -26,5 +27,5 @@ class Login
   v::db::DBWrapper db_client;
 
 public:
-  signup_save(const dlib::incoming_things& incoming);
+  void signup_save(const dlib::incoming_things& incoming);
 }
