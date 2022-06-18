@@ -1,7 +1,7 @@
 /**
- * Copyright, 2022, Polaris3d.co. All rights reserved.
+ * Copyright, 2022.
  * This file is 
- * Author: Changhyun Son <xoowoo3@polarsi3d.co>
+ * Author: Changhyun Son <xoowoo35@gmail.com>
 */
 
 #include "http.h"
@@ -107,6 +107,8 @@ string fifa_server::url_signup(
   std::ostringstream sout;
   if(path_str.find(message) != std::string::npos)
   {
+    // 저장
+    signup_save(incoming);
     LOG(INFO) << "user: " << incoming.queries["user"];
     LOG(INFO) << "passwd: " << incoming.queries["passwd"];
     sout << "{ \"success\" : \"true\"  }" ;

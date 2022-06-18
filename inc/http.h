@@ -1,7 +1,7 @@
 /**
- * Copyright, 2022, Polaris3d.co. All rights reserved.
+ * Copyright, 2022.
  * This file is 
- * Author: Changhyun Son <xoowoo3@polarsi3d.co>
+ * Author: Changhyun Son <xoowoo35@gmail.com>
 */
 #include <AclRedisClient.h>
 #include <json/json.h>
@@ -62,3 +62,5 @@ public:
       const dlib::incoming_things& incoming, string message);
   string localchangetime();
 };
+
+
