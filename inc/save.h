@@ -27,5 +27,9 @@ class Login
   v::db::DBWrapper db_client;
 
 public:
-  void signup_save(const dlib::incoming_things& incoming);
+  int GetUserId();
+  void SignUpParse(const dlib::incoming_things& incoming);
+  void DBUserId(int user_id);
+  vodi DBUserInf(UserInf user_inf);
+  string LocalChangeTime();
 }
