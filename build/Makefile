@@ -136,33 +136,6 @@ EXE_SERVER/fast:
 	$(MAKE) -f CMakeFiles/EXE_SERVER.dir/build.make CMakeFiles/EXE_SERVER.dir/build
 .PHONY : EXE_SERVER/fast
 
-src/http.o: src/http.cc.o
-
-.PHONY : src/http.o
-
-# target to build an object file
-src/http.cc.o:
-	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/http.cc.o
-.PHONY : src/http.cc.o
-
-src/http.i: src/http.cc.i
-
-.PHONY : src/http.i
-
-# target to preprocess a source file
-src/http.cc.i:
-	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/http.cc.i
-.PHONY : src/http.cc.i
-
-src/http.s: src/http.cc.s
-
-.PHONY : src/http.s
-
-# target to generate assembly for a file
-src/http.cc.s:
-	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/http.cc.s
-.PHONY : src/http.cc.s
-
 src/main.o: src/main.cc.o
 
 .PHONY : src/main.o
@@ -200,9 +173,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... interfacelib"
 	@echo "... EXE_SERVER"
-	@echo "... src/http.o"
-	@echo "... src/http.i"
-	@echo "... src/http.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

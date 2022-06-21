@@ -17,7 +17,8 @@ ADD_DEFINITIONS(
 set(
 	SOURECE
 	${CMAKE_CURRENT_SOURCE_DIR}/src/http.cc
-	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/save.cc
+
 )
 
 

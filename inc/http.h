@@ -3,22 +3,7 @@
  * This file is 
  * Author: Changhyun Son <xoowoo35@gmail.com>
 */
-#include <AclRedisClient.h>
-#include <json/json.h>
-#include <dlib/server.h>
-#include <dlib/threads.h>
-#include <dlib/iosockstream.h>
-#include <dlib/sockets.h>
-#include <db_wrapper.h>
-#include <RegularDbItems.hpp>
-#include <sys/shm.h>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-
+#include "save.h"
 
 
 #define PORT 33150

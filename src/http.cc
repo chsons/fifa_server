@@ -108,7 +108,8 @@ string fifa_server::url_signup(
   if(path_str.find(message) != std::string::npos)
   {
     // 저장
-    signup_save(incoming);
+    Login login; 
+    login.SignUpParse(incoming);
     LOG(INFO) << "user: " << incoming.queries["user"];
     LOG(INFO) << "passwd: " << incoming.queries["passwd"];
     sout << "{ \"success\" : \"true\"  }" ;
