@@ -136,6 +136,33 @@ EXE_SERVER/fast:
 	$(MAKE) -f CMakeFiles/EXE_SERVER.dir/build.make CMakeFiles/EXE_SERVER.dir/build
 .PHONY : EXE_SERVER/fast
 
+src/http.o: src/http.cc.o
+
+.PHONY : src/http.o
+
+# target to build an object file
+src/http.cc.o:
+	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/http.cc.o
+.PHONY : src/http.cc.o
+
+src/http.i: src/http.cc.i
+
+.PHONY : src/http.i
+
+# target to preprocess a source file
+src/http.cc.i:
+	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/http.cc.i
+.PHONY : src/http.cc.i
+
+src/http.s: src/http.cc.s
+
+.PHONY : src/http.s
+
+# target to generate assembly for a file
+src/http.cc.s:
+	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/http.cc.s
+.PHONY : src/http.cc.s
+
 src/main.o: src/main.cc.o
 
 .PHONY : src/main.o
@@ -163,6 +190,33 @@ src/main.cc.s:
 	$(MAKE) -f CMakeFiles/EXE_SERVER.dir/build.make CMakeFiles/EXE_SERVER.dir/src/main.cc.s
 .PHONY : src/main.cc.s
 
+src/save.o: src/save.cc.o
+
+.PHONY : src/save.o
+
+# target to build an object file
+src/save.cc.o:
+	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/save.cc.o
+.PHONY : src/save.cc.o
+
+src/save.i: src/save.cc.i
+
+.PHONY : src/save.i
+
+# target to preprocess a source file
+src/save.cc.i:
+	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/save.cc.i
+.PHONY : src/save.cc.i
+
+src/save.s: src/save.cc.s
+
+.PHONY : src/save.s
+
+# target to generate assembly for a file
+src/save.cc.s:
+	$(MAKE) -f CMakeFiles/interfacelib.dir/build.make CMakeFiles/interfacelib.dir/src/save.cc.s
+.PHONY : src/save.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -173,9 +227,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... interfacelib"
 	@echo "... EXE_SERVER"
+	@echo "... src/http.o"
+	@echo "... src/http.i"
+	@echo "... src/http.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/save.o"
+	@echo "... src/save.i"
+	@echo "... src/save.s"
 .PHONY : help
 
 

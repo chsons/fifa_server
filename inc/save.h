@@ -16,11 +16,13 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vsys.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include "data.h"
 
+using namespace std;
 
 class Login
 {
@@ -30,6 +32,6 @@ public:
   int GetUserId();
   void SignUpParse(const dlib::incoming_things& incoming);
   void DBUserId(int user_id);
-  vodi DBUserInf(UserInf user_inf);
-  string LocalChangeTime();
-}
+  void DBUserInf(UserInf user_inf);
+  std::string LocalChangeTime();
+};

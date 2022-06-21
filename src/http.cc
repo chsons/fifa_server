@@ -110,8 +110,6 @@ string fifa_server::url_signup(
     // 저장
     Login login; 
     login.SignUpParse(incoming);
-    LOG(INFO) << "user: " << incoming.queries["user"];
-    LOG(INFO) << "passwd: " << incoming.queries["passwd"];
     sout << "{ \"success\" : \"true\"  }" ;
   }   
 
