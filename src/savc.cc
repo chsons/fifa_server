@@ -19,11 +19,21 @@ int Login::GetUserId();
 }
 void Login::DBUserId(int user_id)
 {
-  
+  std::string get_key = regularDbItemKeys::fifa::USER_ID;
+  if(db_client.PushDataOnList<int>
+        (get_key, user_id) != db_client.KSuccess ) 
+  {
+    LOG(ERREOR) << "PushDataOnList: It can't find the key about USER_ID";
+  }
 }
 void Login::DBUserInf(UserInf user_inf)
 {
-
+  std::string get_key = regularDbItemKeys::fifa::USER_INF;
+  if(db_client.PushDataOnList<UserInf>
+        (get_key, user_inf) != db_client.KSuccess ) 
+  {
+    LOG(ERREOR) << "PushDataOnList: It can't find the key about USER_INF";
+  }
 }
 void Login::SignUpParse(const dlib::incoming_things& incoming)
 {
