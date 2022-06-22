@@ -92,7 +92,8 @@ string fifa_server::url_login(
   std::ostringstream sout;
   if(path_str.find(message) != std::string::npos)
   {
-    sout << "{ \"success\" : \"true\"  }" ;
+    Login login;
+    sout << "{ \"success\" : " << login.LoginParse(incoming) << " }" ;
   }   
 
   return sout.str();

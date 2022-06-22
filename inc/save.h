@@ -33,5 +33,8 @@ public:
   void SignUpParse(const dlib::incoming_things& incoming);
   void DBUserId(int user_id);
   void DBUserInf(UserInf user_inf);
+  bool LoginParse(const dlib::incoming_things& incoming);
+  bool CheckingID(std::vector<UserInf> vec_user_inf, string user_email, string user_passward);
+  bool CheckingPW(string get_passward, string user_passward);
   std::string LocalChangeTime();
 };

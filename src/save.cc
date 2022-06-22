@@ -13,9 +13,9 @@ int Login::GetUserId()
         get_key, ret_user_id) != db_client.kSuccess)
   {
     LOG(ERROR) << "GetListData: It can't find the key about USER_INF";
+    return 0;
   }
-
-  return ret_user_id.size();
+  else return ret_user_id.size();
 }
 void Login::DBUserId(int user_id)
 {
@@ -29,12 +29,31 @@ void Login::DBUserId(int user_id)
 void Login::DBUserInf(UserInf user_inf)
 {
   std::string get_key = regularDbItemKeys::fifa::USER_INF;
-  if(db_client.PushDataOnList<UserInf>
-        (get_key, user_inf) != db_client.kSuccess ) 
+  if(db_client.PushDataOnList<UserInf>(
+        get_key, user_inf) != db_client.kSuccess ) 
   {
     LOG(ERROR) << "PushDataOnList: It can't find the key about USER_INF";
   }
 }
+bool Login::CheckingID(std::vector<UserInf> vec_user_inf, string user_email, string user_passward)
+{ 
+  for(int i = 0; i < vec_user_inf.size(); i++)
+  {
+    std::string get_email(vec_user_inf[i].email); 
+    if(get_email.compare(user_email) == 0)
+    {
+      std::string get_passward(vec_user_inf[i].passward);
+      return CheckingPW(get_passward, user_passward);
+    } 
+  }
+  return false;
+}
+bool Login::CheckingPW(string get_passward, string user_passward)
+{
+  if(get_passward.compare(user_passward) == 0) return true;
+  else return false;
+}
+
 void Login::SignUpParse(const dlib::incoming_things& incoming)
 {
   UserInf user_inf;
@@ -56,7 +75,21 @@ void Login::SignUpParse(const dlib::incoming_things& incoming)
   // save a user inf at the DB.
   DBUserInf(user_inf);
 }
+bool Login::LoginParse(const dlib::incoming_things& incoming)
+{
+  std::vector<UserInf> vec_user_inf;
+  std::string get_key = regularDbItemKeys::fifa::USER_INF;
+  if(db_client.GetListData<UserInf>(
+        get_key, vec_user_inf) != db_client.kSuccess)
+  {
+    LOG(ERROR) << "GetListData: It cannot find the key about USER_INF";
+  }
 
+  std::string str_email = incoming.queries["email"];
+  std::string str_passward = incoming.queries["passward"];
+
+  return CheckingID(vec_user_inf, str_email, str_passward);
+}
 std::string Login::LocalChangeTime()
 {
      //현재 시간 출력
