@@ -4,7 +4,6 @@
  * Author: Changhyun Son <xoowoo35@gmail.com>
 */
 
-
 typedef struct _UserInf{
   int id;        // db_id
   char email[36];     // login_id

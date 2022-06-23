@@ -50,9 +50,15 @@ bool Login::CheckingPW(string get_passward, string user_passward)
   if(get_passward.compare(user_passward) == 0) return true;
   else return false;
 }
-int Login::CheckingPassward(string queries)
+int Login::VerPassward(string queries)
 {
-  if(queries.size() < 8 || queries.size() > 20 ) return 
+  // result 
+  // 0 : success
+  // 3 : password len
+  // 4 : blank
+  if(queries.size() < 8 || queries.size() > 20 ) return 3;
+  if(isspace(queries) != 0) return 4;
+  return 0;
 }
 bool Login::CheckingOverlapEmail(string queries)
 {
@@ -73,10 +79,22 @@ bool Login::CheckingOverlapEmail(string queries)
 RpnsStyle1 Login::SignUpParse(const dlib::incoming_things& incoming)
 {
   RpnsStyle1 sign_respose; 
+  sign_respose.success = 1;
+  sign_respose.result = 0;
   // checking overlap Email and Username
-  if( CheckingOverlapEmail(incoming.queries["email"]) != true ) sign_respose.result = 1;
-  if( CheckingPassward(incoming.queries["passward"] != true) )
-
+  if( CheckingOverlapEmail(incoming.queries["email"]) != true ) 
+  {
+    sign_respose.success = 0;
+    sign_respose.result = 1;
+    return sign_respose;
+  }
+  
+  if( VerPassward(incoming.queries["passward"]) != 0 )
+  {
+    sign_respose.success = 0;
+    sign_respose.result = VerPassward(incoming.queries["passward"]);
+  }
+  
   UserInf user_inf;
   user_inf.id = GetUserId();
   std::string str_email = incoming.queries["email"];
@@ -91,10 +109,12 @@ RpnsStyle1 Login::SignUpParse(const dlib::incoming_things& incoming)
   user_inf.is_staff = true;
 
   // save a user id at the DB.
-  DBUserId(user_inf.id);
+  if(sign_respose.success == 1) DBUserId(user_inf.id);
 
   // save a user inf at the DB.
-  DBUserInf(user_inf);
+  if(sign_respose.success == 1) DBUserInf(user_inf);
+
+  return sign_respose;
 }
 bool Login::LoginParse(const dlib::incoming_things& incoming)
 {

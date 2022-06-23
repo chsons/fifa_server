@@ -20,9 +20,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <ctype.h>
 #include "data.h"
 
 using namespace std;
+
+
 
 class Login
 {
@@ -39,6 +42,6 @@ public:
   bool CheckingPW(string get_passward, string user_passward);
 
   bool CheckingOverlapEmail(string queries);
-  int CheckingPassward(string queries);
+  int VerPassward(string queries);
   std::string LocalChangeTime();
 };
