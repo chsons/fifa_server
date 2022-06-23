@@ -50,6 +50,10 @@ bool Login::CheckingPW(string get_passward, string user_passward)
   if(get_passward.compare(user_passward) == 0) return true;
   else return false;
 }
+bool Login::CheckingID(string queries)
+{
+  if(queries.size() < 8 || queries.size() > 20 ) return 
+}
 bool Login::CheckingOverlapEmail(string queries)
 {
   std::vector<UserInf> vec_user_inf;
@@ -66,9 +70,9 @@ bool Login::CheckingOverlapEmail(string queries)
   return true;
 
 }
-bool Login::SignUpParse(const dlib::incoming_things& incoming)
+RpnsStyle1 Login::SignUpParse(const dlib::incoming_things& incoming)
 {
-  // checking overlap
+  // checking overlap Email and Username
   if( CheckingOverlapEmail(incoming.queries["email"]) != true ) return false;
   
 

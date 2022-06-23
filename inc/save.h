@@ -27,11 +27,11 @@ using namespace std;
 class Login
 {
   v::db::DBWrapper db_client;
-   std::string key_user_id = regularDbItemKeys::fifa::USER_ID;
-   std::string key_user_inf = regularDbItemKeys::fifa::USER_INF;
+  std::string key_user_id = regularDbItemKeys::fifa::USER_ID;
+  std::string key_user_inf = regularDbItemKeys::fifa::USER_INF;
 public:
   int GetUserId();
-  bool SignUpParse(const dlib::incoming_things& incoming);
+  RpnsStyle1 SignUpParse(const dlib::incoming_things& incoming);
   void DBUserId(int user_id);
   void DBUserInf(UserInf user_inf);
   bool LoginParse(const dlib::incoming_things& incoming);
@@ -39,5 +39,6 @@ public:
   bool CheckingPW(string get_passward, string user_passward);
 
   bool CheckingOverlapEmail(string queries);
+  bool CheckingPassward(string queries);
   std::string LocalChangeTime();
 };

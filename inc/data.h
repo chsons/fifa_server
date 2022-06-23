@@ -18,3 +18,8 @@ typedef struct _UserInf{
 
 }UserInf;
 
+
+typedef struct _RpnsStyle1{
+  bool success;
+  int result;
+}RpnsStyle1;

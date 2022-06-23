@@ -108,10 +108,18 @@ string fifa_server::url_signup(
   std::ostringstream sout;
   if(path_str.find(message) != std::string::npos)
   {
-    // 저장
     Login login; 
-    login.SignUpParse(incoming);
-    sout << "{ \"success\" : \"true\"  }" ;
+    RpnsStyle1 respse;
+    respse = login.SignUpParse(incoming);
+
+    Json::Value j_signup_respose;
+    j_signup_respose["success"] = respse.success;
+    j_signup_respose["result"] = respse.result;
+
+    Json::StyledWriter writer;
+    std::string str_writer = writer.write(j_signup_respose);
+
+    sout << str_writer;
   }   
 
   return sout.str();
