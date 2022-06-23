@@ -39,6 +39,6 @@ public:
   bool CheckingPW(string get_passward, string user_passward);
 
   bool CheckingOverlapEmail(string queries);
-  bool CheckingPassward(string queries);
+  int CheckingPassward(string queries);
   std::string LocalChangeTime();
 };
