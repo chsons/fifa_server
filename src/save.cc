@@ -8,9 +8,8 @@
 int Login::GetUserId()
 {
   std::vector<int> ret_user_id;
-  std::string get_key = regularDbItemKeys::fifa::USER_ID;
   if(db_client.GetListData<int>(
-        get_key, ret_user_id) != db_client.kSuccess)
+        key_user_id, ret_user_id) != db_client.kSuccess)
   {
     LOG(ERROR) << "GetListData: It can't find the key about USER_INF";
     return 0;
@@ -19,18 +18,16 @@ int Login::GetUserId()
 }
 void Login::DBUserId(int user_id)
 {
-  std::string get_key = regularDbItemKeys::fifa::USER_ID;
   if(db_client.PushDataOnList<int>
-        (get_key, user_id) != db_client.kSuccess ) 
+        (key_user_id, user_id) != db_client.kSuccess ) 
   {
     LOG(ERROR) << "PushDataOnList: It can't find the key about USER_ID";
   }
 }
 void Login::DBUserInf(UserInf user_inf)
 {
-  std::string get_key = regularDbItemKeys::fifa::USER_INF;
   if(db_client.PushDataOnList<UserInf>(
-        get_key, user_inf) != db_client.kSuccess ) 
+        key_user_inf, user_inf) != db_client.kSuccess ) 
   {
     LOG(ERROR) << "PushDataOnList: It can't find the key about USER_INF";
   }
@@ -53,9 +50,28 @@ bool Login::CheckingPW(string get_passward, string user_passward)
   if(get_passward.compare(user_passward) == 0) return true;
   else return false;
 }
-
-void Login::SignUpParse(const dlib::incoming_things& incoming)
+bool Login::CheckingOverlapEmail(string queries)
 {
+  std::vector<UserInf> vec_user_inf;
+  if(db_client.GetListData<UserInf>(
+        key_user_inf, vec_user_inf) != db_client.kSuccess)
+  {
+    LOG(ERROR) << "GetListData: It can't find the key about USER_INF";
+  }
+
+  for (int i = 0; i < vec_user_inf.size(); i++)
+  {
+    if(queries.compare(vec_user_inf[i].email) == 0) return false;
+  }
+  return true;
+
+}
+bool Login::SignUpParse(const dlib::incoming_things& incoming)
+{
+  // checking overlap
+  if( CheckingOverlapEmail(incoming.queries["email"]) != true ) return false;
+  
+
   UserInf user_inf;
   user_inf.id = GetUserId();
   std::string str_email = incoming.queries["email"];

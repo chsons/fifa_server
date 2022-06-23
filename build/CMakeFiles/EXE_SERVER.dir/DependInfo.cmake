@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/son/myson/fifa/src/main.cc" "/home/son/myson/fifa/build/CMakeFiles/EXE_SERVER.dir/src/main.cc.o"
+  "/home/son/myson/myson/fifa/src/main.cc" "/home/son/myson/myson/fifa/build/CMakeFiles/EXE_SERVER.dir/src/main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -25,7 +25,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/son/myson/fifa/build/CMakeFiles/interfacelib.dir/DependInfo.cmake"
+  "/home/son/myson/myson/fifa/build/CMakeFiles/interfacelib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

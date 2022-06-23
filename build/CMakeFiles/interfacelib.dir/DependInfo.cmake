@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/son/myson/fifa/src/http.cc" "/home/son/myson/fifa/build/CMakeFiles/interfacelib.dir/src/http.cc.o"
-  "/home/son/myson/fifa/src/save.cc" "/home/son/myson/fifa/build/CMakeFiles/interfacelib.dir/src/save.cc.o"
+  "/home/son/myson/myson/fifa/src/http.cc" "/home/son/myson/myson/fifa/build/CMakeFiles/interfacelib.dir/src/http.cc.o"
+  "/home/son/myson/myson/fifa/src/save.cc" "/home/son/myson/myson/fifa/build/CMakeFiles/interfacelib.dir/src/save.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

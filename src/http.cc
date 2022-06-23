@@ -34,7 +34,7 @@ void WebInterface::thread(){
   int count = 0;
 
   fifa_server our_fifa_server;
-  // make it listen on port 33150
+  // make it listen on port 16850
   our_fifa_server.set_listening_port(PORT);
   // Tell the server to begin accepting connections.
   our_fifa_server.start_async();
